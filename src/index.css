@@ -10,6 +10,21 @@
 html {
   font-size: 62.5%;
 }
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 37.5em) {
+  html {
+    font-size: 31.25%;
+  }
+}
 
 body {
   font-family: "Roboto Condensed", sans-serif;
@@ -25,6 +40,21 @@ body {
 .row {
   width: 100%;
   padding: 0 8rem;
+}
+@media (max-width: 75em) {
+  .row {
+    padding: 0 6rem;
+  }
+}
+@media (max-width: 56.25em) {
+  .row {
+    padding: 0 4rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .row {
+    padding: 0 1rem;
+  }
 }
 
 .relative {

@@ -10,10 +10,21 @@
 
 html {
     font-size: 62.5%;
+
+    @include respond(tab-land){
+        font-size:56.25%;
+    }
+    @include respond(tab-port){
+        font-size:50%;
+    }
+    @include respond(phone){
+        font-size:31.25%;
+    }
 }
 
 $color-primary:#2AD882;
 $color-secondary:#1F242B;
+
 
 body {
     font-family: 'Roboto Condensed', sans-serif;
@@ -21,6 +32,7 @@ body {
     font-size: 1.6rem;
     font-weight: 400;
     background-color: $color-secondary;
+
 }.absolute {
     position: absolute;
 }
@@ -28,6 +40,16 @@ body {
 .row{
     width: 100%;
     padding: 0 8rem;
+
+    @include respond(tab-land){
+        padding: 0 6rem;
+    }
+    @include respond(tab-port){
+        padding: 0 4rem;
+    }
+    @include respond(phone){
+        padding: 0 1rem;
+    }
 }
 
 .relative {
@@ -88,3 +110,4 @@ body {
 .center-head{
     align-items: center;
 }
+
