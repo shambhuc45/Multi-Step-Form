@@ -22,7 +22,7 @@ html {
 }
 @media (max-width: 37.5em) {
   html {
-    font-size: 31.25%;
+    font-size: 43%;
   }
 }
 
@@ -182,6 +182,12 @@ body {
 .form-group {
   width: 60%;
   margin: 0 20%;
+}
+@media (max-width: 37.5em) {
+  .form-group {
+    width: 80%;
+    margin: 0 10%;
+  }
 }
 
 .form-label {

@@ -2,7 +2,6 @@
     margin-top: 5rem;
 
     
-    
 }
 .btn-next{
     padding: .5rem 2.5rem;
@@ -52,6 +51,11 @@
 .form-group{
     width: 60%;
     margin: 0 20%;
+
+    @include respond(phone){
+        width: 80%;
+        margin: 0 10%;
+    }
 }
 .form-label{
     color: $color-primary;
