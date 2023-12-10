@@ -2,9 +2,42 @@ import React,{ useState, useEffect } from "react";
 
 export default function Firstform({ data, setData }) {
   const [isValid, setIsValid] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState({
+    name: '',
+    email: '',
+    address: '',
+    phone: '',
+    gender:'',
+    dob:''
+  });
 
   useEffect(() => {
-    const formIsValid = Object.values(data).every((value) => value !== "");
+    const isNameValid = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(data.name); 
+    const isEmailValid = /\S+@\S+\.\S+/.test(data.email); 
+    const isAddressValid = data.address.trim() !== ""; 
+    const isPhoneValid = /^(\+977)?(97|98)\d{8}$/.test(data.phone); 
+    const isGenderValid = ['male', 'female', 'other'].includes(data.gender);
+    const isDOBValid = new Date(data.dob) <= new Date();
+
+
+    setFieldErrors({
+      name: isNameValid ? '' : 'Please enter a valid name',
+      email: isEmailValid ? '' : 'Please enter a valid email address',
+      address: isAddressValid ? '' : 'Please enter your address',
+      phone: isPhoneValid ? '' : 'Please enter a valid phone number',
+      gender: isGenderValid?'': 'Please select a Gender',
+      dob: isDOBValid ? '' : 'Please enter a valid date of birth',
+    });
+    
+    const formIsValid =
+      isNameValid &&
+      isEmailValid &&
+      isAddressValid &&
+      isPhoneValid &&
+      isGenderValid &&
+      isDOBValid &&
+      Object.values(data).every((value) => value !== "");
+  
     setIsValid(formIsValid);
   }, [data]);
 
@@ -37,6 +70,7 @@ export default function Firstform({ data, setData }) {
               required
               
             />
+            <span className="error-message">{fieldErrors.name}</span>
           </div>
           <div className="form-group row">
             <label htmlFor="email" className="form-label col-25">
@@ -51,6 +85,7 @@ export default function Firstform({ data, setData }) {
               value={data['email']}
               required
             />
+            <span className="error-message">{fieldErrors.email}</span>
           </div>
           <div className="form-group row">
             <label htmlFor="address" className="form-label col-25">
@@ -65,6 +100,7 @@ export default function Firstform({ data, setData }) {
               value={data['address']}
               required
             />
+            <span className="error-message">{fieldErrors.address}</span>
           </div>
           <div className="form-group row">
             <label htmlFor="phone" className="form-label col-25">
@@ -80,6 +116,7 @@ export default function Firstform({ data, setData }) {
               value={data['phone']}
               required
             />
+            <span className="error-message">{fieldErrors.phone}</span>
           </div>
           <div className="form-group row">
             <p className="form-label col-25">Gender:</p>
@@ -127,9 +164,11 @@ export default function Firstform({ data, setData }) {
                 <label htmlFor="other" className="form-label label-radio">
                   Other
                 </label>
+            <span className="error-message">{fieldErrors.gender}</span>
                 <br />{" "}
               </div>
             </div>
+            
             </div>
           <div className="form-group row">
             <label htmlFor="dob" className="form-label col-25">
@@ -144,6 +183,7 @@ export default function Firstform({ data, setData }) {
               value={data['dob']}
               required
             />
+            <span className="error-message">{fieldErrors.dob}</span>
           </div>
           
             {/* <div className="form-group first row flex">

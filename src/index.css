@@ -239,6 +239,12 @@ body {
   cursor: pointer;
 }
 
+.error-message {
+  color: red;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .btn-next:disabled {
   pointer-events: none;
 }

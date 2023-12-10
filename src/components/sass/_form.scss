@@ -98,3 +98,8 @@ height: 3.5rem;
 .label-radio{
     cursor: pointer;
 }
+.error-message{
+    color: red;
+    display: flex;
+    justify-content: flex-start;
+}
