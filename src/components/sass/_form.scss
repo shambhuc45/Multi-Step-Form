@@ -1,105 +1,110 @@
-.first-step{
-    margin-top: 5rem;
-
-    
+.steps {
+  margin-top: 5rem;
 }
-.btn-next{
-    padding: .5rem 2.5rem;
+.btn-next {
+  padding: 0.5rem 2.5rem;
+  border: 2px solid $color-primary;
+  background-color: $color-primary;
+  font-size: 1.5rem;
+  font-weight: 500;
+  width: fit-content;
+  margin: 1rem 0;
+  right: 10%;
+
+  &:hover {
+    background-color: $color-secondary;
     border: 2px solid $color-primary;
-    background-color: $color-primary;
-    font-size: 1.5rem;
-    font-weight: 500;
-    width: fit-content;
+    color: white;
+    transition: all 0.5s;
+  }
+}
+.btn-group {
+  flex-direction: row;
+  justify-content: space-between;
+  .btn-next {
     margin: 1rem 0;
-    right: 10%;
+  }
+}
+.first {
+  justify-content: flex-end;
+}
+.check-label {
+  cursor: pointer;
+}
+.top-heading {
+  text-transform: uppercase;
+  color: $color-primary;
+  font-weight: 600;
+  font-size: 3rem;
+}
+.group-check {
+  text-align: left;
+}
+.heading-first {
+  text-transform: capitalize;
+  color: $color-primary;
+  font-weight: 500;
+  font-size: 3rem;
+}
+.form-group {
+  width: 60%;
+  margin: 0 20%;
 
-    &:hover{
-        background-color: $color-secondary;
-        border: 2px solid $color-primary;
-        color: white;
-        transition: all 0.5s;
-    }
+  @include respond(phone) {
+    width: 80%;
+    margin: 0 10%;
+  }
 }
-.btn-group{
-    flex-direction: row;
-    justify-content: space-between;
-    .btn-next{
-        margin:1rem 0 ;
-    }
+.form-label {
+  color: $color-primary;
+  text-align: left;
+  padding: 0%;
 }
-.first{
-    justify-content: flex-end;
+.form-input {
+  padding: 1rem 0.25rem;
+  border-radius: 2px;
+  background-color: rgba(#ffffff, 1);
+  border: 2px solid $color-primary;
+  font-family: inherit;
+  min-width: 25%;
+  height: 3.5rem;
 }
-.check-label{
-    cursor: pointer;
+.form-dropdown {
+  padding: 0.25rem;
+  border-radius: 2px;
+  background-color: rgba(#ffffff, 1);
+  border: 2px solid $color-primary;
+  font-family: inherit;
+  min-width: 25%;
+  height: 3.5rem;
 }
-.top-heading{
-    text-transform:uppercase;
-    color: $color-primary;
-    font-weight: 600;
-    font-size: 3rem;
+.form-file {
+  padding: 0;
+  cursor: pointer;
 }
-.group-check{
-    text-align: left;
+.label-radio {
+  color: $color-primary;
 }
-.heading-first{
-    text-transform:capitalize;
-    color: $color-primary;
-    font-weight: 500;
-    font-size: 3rem;
+.radio-group {
+  justify-content: space-around;
 }
-.form-group{
-    width: 60%;
-    margin: 0 20%;
+.radio-button {
+  padding: 0 1rem 1rem 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+.label-radio {
+  cursor: pointer;
+}
+.error-message {
+  color: red;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
 
-    @include respond(phone){
-        width: 80%;
-        margin: 0 10%;
-    }
-}
-.form-label{
-    color: $color-primary;
-    text-align: left;
-    padding: 0%;
-}
-.form-input{
-padding: 1rem 0.25rem;
-border-radius: 2px;
-background-color: rgba(#ffffff, 1);
-border: 2px solid $color-primary;
-font-family: inherit;
-min-width: 25%;
-height: 3.5rem;
-}
-.form-dropdown{
-    padding:  0.25rem;
-    border-radius: 2px;
-    background-color: rgba(#ffffff, 1);
-    border: 2px solid $color-primary;
-    font-family: inherit;
-    min-width: 25%;
-    height: 3.5rem;
-}
-.form-file{
-    padding: 0;
-    cursor: pointer;
-}
-.label-radio{
-    color: $color-primary;
-}
-.radio-group{
-    justify-content: space-around;
-}
-.radio-button{
-    padding: 0 1rem 1rem 1rem;
-    text-align: center;
-    cursor: pointer;
-}
-.label-radio{
-    cursor: pointer;
-}
-.error-message{
-    color: red;
-    display: flex;
-    justify-content: flex-start;
+.top-margin {
+  margin-top: 1rem;
 }

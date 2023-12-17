@@ -1,14 +1,23 @@
-import React ,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from "react";
+import Input from "./form-inputs/Input";
 
 export default function ThirdStep({ data, setData }) {
-    const [isValid, setIsValid] = useState(false);
-
+  const [isValid, setIsValid] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState({
+    nomName: "",
+  });
   useEffect(() => {
-    const formIsValid = Object.values(data).every((value) => value !== "");
+    const isNameValid = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(data.nomName);
+
+    setFieldErrors({
+      nomName: isNameValid ? "" : "Please enter a valid name",
+    });
+
+    const formIsValid =
+      isNameValid && Object.values(data).every((value) => value !== "");
+
     setIsValid(formIsValid);
   }, [data]);
-
-
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -20,97 +29,31 @@ export default function ThirdStep({ data, setData }) {
   };
   return (
     <>
-      <div className="first-step">
+      <div className="steps">
         <h1 className="heading-first text-center">Nominee Details</h1>
-        <form className="first-form">
-          <div className="form-group row">
-            <label htmlFor="nomName" className="form-label col-25">
-              Nominee's Full Name:{" "}
-            </label>
-            <input
-              type="text"
-              className="form-input col-75"
-              id="nomName"
-              placeholder="Enter Nominee's Full Name"
-              onChange={handleInputChange}
-              value={data["nomName"]}
-              required
-            />
-          </div>
-          <div className="form-group row">
-            <label htmlFor="nomAge" className="form-label col-25">
-              Nominee's Age:{" "}
-            </label>
-            <input
-              type="number"
-              className="form-input col-75"
-              id="nomAge"
-              placeholder="Enter Nominee's Age"
-              onChange={handleInputChange}
-              value={data["nomAge"]}
-              required
-            />
-          </div>
-          <div className="form-group row">
-            <label htmlFor="relation" className="form-label col-25">
-              Relation:{" "}
-            </label>
-            <input
-              type="text"
-              className="form-input col-75"
-              id="relation"
-              placeholder="Enter your Relation"
-              onChange={handleInputChange}
-              value={data["relation"]}
-              required
-            />
-          </div>
-          <div className="form-group row">
-            <label htmlFor="nomPhone" className="form-label col-25">
-              Nominee's Phone:
-            </label>
-            <input
-              type="tel"
-              className="form-input col-75"
-              pattern="^9[7-8]\d{8}$"
-              id="nomPhone"
-              placeholder="Enter Phone"
-              onChange={handleInputChange}
-              value={data["nomPhone"]}
-              required
-            />
-          </div>
-          <div className="form-group row">
-            <label htmlFor="nomAdd" className="form-label col-25">
-              Nominee's Address:{" "}
-            </label>
-            <input
-              type="text"
-              className="form-input col-75"
-              id="nomAdd"
-              placeholder="Enter Nominee's Address"
-              onChange={handleInputChange}
-              value={data["nomAdd"]}
-              required
-            />
-          </div>
-          <div className="form-group row">
-            <label htmlFor="nomCitizenship" className="form-label col-25">
-              Nominees's Citizenship No.:{" "}
-            </label>
-            <input
-              type="number"
-              className="form-input col-75"
-              id="nomCitizenship"
-              pattern="^\d{11,}$"
-              placeholder="Enter Nominee's Citizenship No."
-              onChange={handleInputChange}
-              value={data["nomCitizenship"]}
-              required
-            />
-          </div>
+        <form className="forms">
+          <Input
+            htmlFor="nomName"
+            label="Nominee's Full Name:"
+            type="text"
+            id="nomName"
+            placeholder="Enter Nominee's Full Name"
+            onChange={handleInputChange}
+            value={data["nomName"]}
+            errormsg={fieldErrors.nomName}
+          />
+          <Input
+            htmlFor="nomAge"
+            label="Nominee's Age:"
+            type="number"
+            id="nomAge"
+            placeholder="Enter Nominee's Age"
+            onChange={handleInputChange}
+            value={data["nomAge"]}
+            errormsg={fieldErrors.nomAge}
+          />
           <div className="form-group row group-check">
-            <div>
+            <div className="top-margin">
               <input
                 type="checkbox"
                 id="terms"
@@ -126,7 +69,7 @@ export default function ThirdStep({ data, setData }) {
               </label>
               <br />
             </div>
-            <div>
+            <div className="top-margin">
               <input
                 type="checkbox"
                 id="privacy"
@@ -143,10 +86,8 @@ export default function ThirdStep({ data, setData }) {
               <br />
             </div>
           </div>
-
-         
         </form>
       </div>
     </>
-  )
+  );
 }

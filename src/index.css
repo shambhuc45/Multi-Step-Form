@@ -124,7 +124,7 @@ body {
   align-items: center;
 }
 
-.first-step {
+.steps {
   margin-top: 5rem;
 }
 
@@ -134,6 +134,7 @@ body {
   background-color: #2AD882;
   font-size: 1.5rem;
   font-weight: 500;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 1rem 0;
   right: 10%;
@@ -242,7 +243,14 @@ body {
 .error-message {
   color: red;
   display: flex;
+  align-items: baseline;
   justify-content: flex-start;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.top-margin {
+  margin-top: 1rem;
 }
 
 .btn-next:disabled {
@@ -267,4 +275,4 @@ table th {
 .review {
   display: flex;
   justify-content: center;
-}
+}/*# sourceMappingURL=index.css.map */
