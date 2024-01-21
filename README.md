@@ -2,4 +2,7 @@ This is a Multi-stepper-form where user go through different forms in different 
 In this, I used  MUI component i.e. Stepper.
 I have also deployed it you can just give it a try.
 
-![multi-step-form](https://github.com/shambhuc45/Multi-Step-Form/assets/134379619/b0e6098d-2aad-4dbf-b57f-732dcbf114a8)
+deplomemt:-  https://shambhuc45.github.io/Multi-Step-Form/
+
+![ss-multistepper](https://github.com/shambhuc45/Multi-Step-Form/assets/134379619/63d95b3c-093c-4d08-af7d-0ff599543c1e)
+
